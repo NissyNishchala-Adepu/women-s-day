@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: pink;
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 280px;
+}
+
+.book {
+    width: 350px;
+    height: 450px;
+    position: relative;
+    transition-duration: 1s;
+    perspective: 1500;
+}
+
+input {
+    display: none;
+}
+
+.cover, .back-cover{
+    background-color: rgb(255, 138, 201);
+    background-image: url(cvr.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 0 0 15px rgb(226, 99, 175);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover {
+    position: absolute;
+    z-index: 3;
+    transform-origin: center left;
+    transition: transform 1s;
+}
+
+.cover label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.back-cover {
+    position: relative;
+    z-index: -1;
+}
+
+.page {
+    position: absolute;
+    background-color: white;
+    width: 330px;
+    height: 420px;
+    border-radius: 0 15px 15px 0;
+    margin-top: 15px;
+}
+
+.page img {
+    width: 100%;
+    height: 420px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#checkbox-cover:checked ~ .book {
+    transform: translatex(200px);
+}
+
+#checkbox-cover:checked ~ .book .cover {
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
